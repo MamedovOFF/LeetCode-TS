@@ -7,4 +7,4 @@ function removeDuplicates(nums: number[]): number {
         nums[i - k] = nums[i]
     }
     return nums.length - k
-};
+}
