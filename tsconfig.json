@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
-    "sourceMap": true
+    "lib": ["es2017", "dom", "es6", "es2019"],
+    "target": "es2017",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "ESNext"
   },
-  "exclude": [
-    "node_modules"
-  ]
 }

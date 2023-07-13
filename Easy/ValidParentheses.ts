@@ -3,7 +3,6 @@ function isValid(s: string): boolean {
         if (s[i] === s[i+ 1]) {
             i++;
         } else {
-            console.log(s[i], s[i+ 1])
             return false
         }
     }

@@ -1,33 +1,33 @@
-var TimeLimitedCache = /** @class */ (function () {
-    function TimeLimitedCache() {
+class TimeLimitedCache {
+    constructor() {
         this.cache = {};
     }
-    TimeLimitedCache.prototype.set = function (key, value, duration) {
+    set(key, value, duration) {
+        var _a;
+        let res = false;
+        if (((_a = this.cache[key]) === null || _a === void 0 ? void 0 : _a.time) > new Date().getTime())
+            res = true;
         this.cache[key] = {
             value: value,
             time: new Date().getTime() + duration
         };
-        return false;
-    };
-    TimeLimitedCache.prototype.get = function (key) {
-        if (this.cache[key].time > new Date().getTime())
-            return this.cache[key].value;
+        return res;
+    }
+    get(key) {
+        var _a, _b;
+        if (((_a = this.cache[key]) === null || _a === void 0 ? void 0 : _a.time) > new Date().getTime())
+            return (_b = this.cache[key]) === null || _b === void 0 ? void 0 : _b.value;
         return -1;
-    };
-    TimeLimitedCache.prototype.count = function () {
-        var res = 0;
-        for (var key in this.cache) {
-            if (this.cache[key].time > new Date().getTime()) {
+    }
+    count() {
+        var _a;
+        let res = 0;
+        for (let key in this.cache) {
+            if (((_a = this.cache[key]) === null || _a === void 0 ? void 0 : _a.time) > new Date().getTime()) {
                 res++;
             }
         }
         return res;
-    };
-    return TimeLimitedCache;
-}());
-var obj = new TimeLimitedCache();
-obj.set(1, 42, 1000); // false
-obj.set(3, 53, 1000); // false
-console.log(obj.get(1)); // 42
-console.log(obj.get(3)); // 53
-console.log(obj.count()); // 1
+    }
+}
+//# sourceMappingURL=TimeLimitedCache.js.map
