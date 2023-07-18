@@ -1,28 +1,27 @@
 class UndergroundSystem {
-    checkInData: {[id:number]: [string, number]}
-    finished: {[path:string]: number[]}
-    constructor() {
-        this.checkInData = {}
-        this.finished = {}
-    }
+  checkInData: { [id: number]: [string, number] }
+  finished: { [path: string]: number[] }
+  constructor() {
+    this.checkInData = {}
+    this.finished = {}
+  }
 
-    checkIn(id: number, stationName: string, t: number): void {
-        this.checkInData[id] = [stationName, t]
-    }
+  checkIn(id: number, stationName: string, t: number): void {
+    this.checkInData[id] = [stationName, t]
+  }
 
-    checkOut(id: number, stationName: string, t: number): void {
-        const [startStation, time] = this.checkInData[id];
-        delete this.checkInData[id];
-        (this.finished[`${startStation}-${stationName}`] ??= []).push(t - time);
-    }
+  checkOut(id: number, stationName: string, t: number): void {
+    const [startStation, time] = this.checkInData[id]
+    delete this.checkInData[id]
+    ;(this.finished[`${startStation}-${stationName}`] ??= []).push(t - time)
+  }
 
-    getAverageTime(startStation: string, endStation: string): number {
-        const sum = this.finished[`${startStation}-${endStation}`]
-            .reduce((acc: number, v: number) => {
-                return acc + v;
-            })
-        return sum / this.finished[`${startStation}-${endStation}`].length;
-    }
+  getAverageTime(startStation: string, endStation: string): number {
+    const sum = this.finished[`${startStation}-${endStation}`].reduce((acc: number, v: number) => {
+      return acc + v
+    })
+    return sum / this.finished[`${startStation}-${endStation}`].length
+  }
 }
 
 /**

@@ -4,7 +4,7 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
   let current: ListNode | null = head
 
   while (current) {
-    let temp: ListNode | null = current
+    let temp = current
     while (temp)
       if (temp?.next?.val === current.val) temp.next = temp?.next?.next
       else temp = temp.next

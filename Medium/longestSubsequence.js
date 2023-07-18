@@ -43,22 +43,21 @@
 //     return Array.from(new Set(res)).length
 // }
 function longestSubsequence(arr, difference) {
-    const obj = {};
-    let maxLen = 0;
-    for (let num of arr) {
-        if (obj[num - difference]) {
-            obj[num] = obj[num - difference] + 1;
-        }
-        else {
-            obj[num] = 1;
-        }
-        maxLen = Math.max(maxLen, obj[num]);
+  const obj = {}
+  let maxLen = 0
+  for (let num of arr) {
+    if (obj[num - difference]) {
+      obj[num] = obj[num - difference] + 1
+    } else {
+      obj[num] = 1
     }
-    console.log(obj);
-    return maxLen;
+    maxLen = Math.max(maxLen, obj[num])
+  }
+  console.log(obj)
+  return maxLen
 }
 // longestSubsequence([1,5,7,8,5,3,4,2,1], -2)
 // 8 5 4 2
-longestSubsequence([4, 12, 10, 0, -2, 7, -8, 9, -9, -12, -12, 8, 8], 0);
+longestSubsequence([4, 12, 10, 0, -2, 7, -8, 9, -9, -12, -12, 8, 8], 0)
 // longestSubsequence([1,2,3,4], 1)
 // console.log(longestSubsequence([1,5,7,8,5,3,4,2,1], -2))
