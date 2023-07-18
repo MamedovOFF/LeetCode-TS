@@ -38,15 +38,13 @@ function graphTraversal(graph: Map<number, number[]>, root: number, k: number, v
 function preOrder(root: TreeNode, graph: Map<number, number[]>): void {
     if (!root) return;
 
-    if (root.left) {
-        graph.get(root.val).push(root.left.val);
+    if (root.left) { graph.get(root.val).push(root.left.val);
         graph.set(root.left.val, [root.val]);
     }
     if (root.right) {
         graph.get(root.val).push(root.right.val);
         graph.set(root.right.val, [root.val]);
     }
-
 
     preOrder(root.left, graph);
     preOrder(root.right, graph);
