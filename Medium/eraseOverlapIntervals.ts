@@ -12,19 +12,6 @@ function eraseOverlapIntervals(intervals: number[][]): number {
   return res
 }
 
-// eraseOverlapIntervals([
-//   [1, 2],
-//   [1, 2],
-//   [1, 2],
-// ])
-// console.log(
-//   eraseOverlapIntervals([
-//     [1, 2],
-//     [1, 2],
-//     [1, 2],
-//   ]),
-// )
-
 console.log(
   eraseOverlapIntervals([
     [1, 2],
@@ -33,11 +20,3 @@ console.log(
     [1, 3],
   ]),
 )
-// console.log(
-//   eraseOverlapIntervals([
-//     [1, 100],
-//     [11, 22],
-//     [1, 11],
-//     [2, 12],
-//   ]),
-// )
