@@ -2,7 +2,6 @@
   "name": "leetcode",
   "version": "1.0.0",
   "description": "",
-  "main": "utils.js",
   "type": "module",
   "scripts": {
     "start": "bash compiler.sh",

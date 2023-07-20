@@ -1,6 +1,6 @@
-type Fm = (...params: any) => any
+type F_M = (...params: any) => any
 
-function memoize(fn: Fm): Fm {
+function memoize(fn: F_M): F_M {
   const cache = {}
   return function (...args) {
     const key = JSON.stringify(args)
